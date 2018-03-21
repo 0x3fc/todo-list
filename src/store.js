@@ -14,8 +14,11 @@ const store = new Vuex.Store({
         ]
     },
     getters: {
-        getTodo(state) {
-            return state.todo;
+        getTodoUndone(state) {
+            return state.todo.filter(todo => !todo.done);
+        },
+        getTodoDone(state) {
+            return state.todo.filter(todo => todo.done);
         }
     },
     mutations: {

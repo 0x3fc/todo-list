@@ -1,6 +1,10 @@
 <template>
     <div>
-        <div v-for="(item, index) in todo" :key="index">
+        <div v-for="item in todoUndone" :key="item.id">
+            {{ item.task }} <input type="checkbox" v-model="item.done"/>
+        </div>
+        <hr>
+        <div v-for="item in todoDone" :key="item.id">
             {{ item.task }} <input type="checkbox" v-model="item.done"/>
         </div>
     </div>
@@ -11,7 +15,8 @@ import { mapGetters } from 'vuex';
 
 export default {
     computed: mapGetters({
-        todo: "getTodo",
+        todoUndone: "getTodoUndone",
+        todoDone: "getTodoDone",
     })
 }
 </script>
