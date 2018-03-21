@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import TodoItems from './TodoItems/TodoItems';
+import TodoItems from './TodoItems';
 import CreateTodo from './CreateTodo';
 
 export default {
