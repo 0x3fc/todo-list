@@ -1,10 +1,16 @@
 <template>
-
+    <div>
+        <TodoItems />
+    </div>
 </template>
 
 <script>
-export default {
+import TodoItems from './TodoItems/TodoItems';
 
+export default {
+    components: {
+        TodoItems,
+    }
 }
 </script>
 
