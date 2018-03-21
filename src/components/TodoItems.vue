@@ -4,7 +4,7 @@
             {{ item.task }} <input type="checkbox" v-model="item.done"/>
         </div>
         <hr>
-        <button @click="toggleShowDone">{{this.$data.show? "Hide" : "Show"}} Done</button>
+        <button @click="toggleShowDone">{{ this.$data.show ? "Hide" : "Show" }} Done</button>
         <div v-for="item in todoDone" :key="item.id" v-if="show">
             {{ item.task }} <input type="checkbox" v-model="item.done"/>
         </div>
