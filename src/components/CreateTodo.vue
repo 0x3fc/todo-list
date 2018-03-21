@@ -14,7 +14,8 @@ export default {
     },
     methods: {
         createTodo(task) {
-            this.$store.commit('createTodo', task)
+            this.$store.commit('createTodo', task);
+            this.$data.task = '';
         }
     }
 }
