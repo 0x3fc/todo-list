@@ -18,6 +18,17 @@ const store = new Vuex.Store({
             return state.todo;
         }
     },
+    mutations: {
+        createTodo(state, task) {
+            const latestId = Math.max.apply(Math, state.todo.map(function(todo) {return todo.id}));
+            const todo = {
+                id: latestId + 1,
+                task: task,
+                done: false,
+            };
+            state.todo.splice(0, 0, todo);
+        }
+    },
 })
 
 export default store;
