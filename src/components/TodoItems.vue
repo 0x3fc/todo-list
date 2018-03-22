@@ -1,14 +1,14 @@
 <template>
-    <div>
+    <v-container>
+        <v-btn flat buttom small color="teal lighten-1" @click="toggleShowDone">{{ this.$data.show ? "Hide" : "Show" }} Done</v-btn>
         <div v-for="item in todoUndone" :key="item.id">
-            {{ item.task }} <input type="checkbox" v-model="item.done"/>
+            <v-checkbox color="teal lighten-1" :label="item.task" v-model="item.done" />
         </div>
-        <hr>
-        <button @click="toggleShowDone">{{ this.$data.show ? "Hide" : "Show" }} Done</button>
+        <v-spacer />
         <div v-for="item in todoDone" :key="item.id" v-if="show">
-            {{ item.task }} <input type="checkbox" v-model="item.done"/>
+            <v-checkbox color="teal lighten-1" :label="item.task" v-model="item.done" />
         </div>
-    </div>
+    </v-container>
 </template>
 
 <script>
@@ -17,7 +17,7 @@ import { mapGetters } from 'vuex';
 export default {
     data() {
         return {
-            show: false,
+            show: true,
         }
     },
     computed: mapGetters({
