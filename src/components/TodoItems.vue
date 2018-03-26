@@ -1,12 +1,12 @@
 <template>
     <v-container>
-        <v-btn flat buttom small color="teal lighten-1" @click="toggleShowDone">{{ this.$data.show ? "Hide" : "Show" }} Done</v-btn>
-        <div v-for="item in todoUndone" :key="item.id">
-            <v-checkbox color="teal lighten-1" :label="item.task" v-model="item.done" />
+        <v-btn flat buttom small color="teal lighten-1" @click="toggleShowDone">{{ this.$data.showFinished ? "Hide" : "Show" }} Done</v-btn>
+        <div v-for="undoneTask in undoneTasks" :key="undoneTask.id" @click="markTaskAsFinished(undoneTask)">
+            <v-checkbox color="teal lighten-1" :label="undoneTask.name" />
         </div>
         <v-spacer />
-        <div v-for="item in todoDone" :key="item.id" v-if="show">
-            <v-checkbox color="teal lighten-1" :label="item.task" v-model="item.done" />
+        <div v-for="finishedTask in finishedTasks" :key="finishedTask.id" v-if="showFinished" @click="markTaskAsUndone(finishedTask)">
+            <v-checkbox color="teal lighten-1" :label="finishedTask.name" input-value="true" />
         </div>
     </v-container>
 </template>
@@ -17,16 +17,22 @@ import { mapGetters } from 'vuex';
 export default {
     data() {
         return {
-            show: true,
+            showFinished: true,
         }
     },
     computed: mapGetters({
-        todoUndone: "getTodoUndone",
-        todoDone: "getTodoDone",
+        undoneTasks: 'getUndoneTasks',
+        finishedTasks: 'getFinishedTasks',
     }),
     methods: {
         toggleShowDone() {
-            return this.$data.show = !this.$data.show;
+            this.showFinished = !this.showFinished;
+        },
+        markTaskAsFinished(undoneTask) {
+            this.$store.commit('markTaskAsFinished', undoneTask);
+        },
+        markTaskAsUndone(finishedTask) {
+            this.$store.commit('markTaskAsUndone', finishedTask);
         }
     }
 }
