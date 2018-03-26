@@ -40,6 +40,18 @@ const store = new Vuex.Store({
             const index = state.finishedTasks.indexOf(finishedTask);
             state.finishedTasks.splice(index, 1);
             state.undoneTasks.push(finishedTask);
+        },
+        editTaskName(state, payload) {
+            // state.undoneTasks[payload.index].name = payload.newTaskName;
+            let index = state.undoneTasks.map(task => task.id).indexOf(payload.taskId);
+            if (index >= 0) {
+                state.undoneTasks[index].name = payload.newTaskName;
+            }
+
+            index = state.finishedTasks.map(task => task.id).indexOf(payload.taskId);
+            if (index >= 0) {
+                state.finishedTasks[index].name = payload.newTaskName;
+            }
         }
     },
 })
