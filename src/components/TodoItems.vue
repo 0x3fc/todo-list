@@ -1,12 +1,18 @@
 <template>
     <v-container>
         <v-btn flat buttom small color="teal lighten-1" @click="toggleShowDone">{{ this.$data.showFinished ? "Hide" : "Show" }} Done</v-btn>
-        <div v-for="undoneTask in undoneTasks" :key="undoneTask.id" @click="markTaskAsFinished(undoneTask)">
-            <v-checkbox color="teal lighten-1" :label="undoneTask.name" />
+        <div v-for="undoneTask in undoneTasks" :key="undoneTask.id">
+            <v-layout align-center>
+                <v-checkbox class="shrink mt-1 mb-1 mr-3 ml-3" color="teal lighten-1" hide-details @click="markTaskAsFinished(undoneTask)" />
+                <v-text-field :value="undoneTask.name" color="teal lighten-1"></v-text-field>
+            </v-layout>
         </div>
         <v-spacer />
-        <div v-for="finishedTask in finishedTasks" :key="finishedTask.id" v-if="showFinished" @click="markTaskAsUndone(finishedTask)">
-            <v-checkbox color="teal lighten-1" :label="finishedTask.name" input-value="true" />
+        <div v-for="finishedTask in finishedTasks" :key="finishedTask.id" v-if="showFinished">
+            <v-layout align-center>
+                <v-checkbox class="shrink mt-1 mb-1 mr-3 ml-3" color="teal lighten-1" hide-details @click="markTaskAsUndone(finishedTask)" input-value="true" />
+                <v-text-field :value="finishedTask.name" color="teal lighten-1"></v-text-field>
+            </v-layout>
         </div>
     </v-container>
 </template>
