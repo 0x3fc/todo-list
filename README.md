@@ -1,6 +1,8 @@
-# todo-list
+# Todo-list
 
-> A Vue.js project
+## Description
+> A Vue.js project 
+Todo-list allows a user to add tasks. There is a window showing all tasks. The newly added tasks will be shown at top of the task window. User can check or uncheck each task to mark if it is completed and hide/show completed tasks by clicking hide/show button.
 
 ## Build Setup
 
@@ -8,7 +10,7 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8081
 npm run dev
 
 # build for production with minification
