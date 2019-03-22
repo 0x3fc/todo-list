@@ -1,7 +1,8 @@
-# Todo-list
+# Todo List
 
-> A Vue.js project.
 ## Description
-Todo-list allows a user to add tasks. There is a window showing all tasks. The newly added tasks will be shown at top of the task window. User can check or uncheck each task to mark if it is completed and hide/show completed tasks by clicking hide/show button. Try at: http://todo.senhung.net/
 
-
+The project implements an in memory todo list using [Vue.js](https://vuejs.org/index.html).
+User can add tasks, see all tasks, mark task as completed.
+New tasks are pushed to the top of the list.
+User can show or hide the completed tasks.
